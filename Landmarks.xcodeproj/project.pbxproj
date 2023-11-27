@@ -165,6 +165,7 @@
 		9AC1FAD22B1471F700659F8E /* LandmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
 		9AC1FAD42B14770D00659F8E /* LandmarkCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkCommands.swift; sourceTree = "<group>"; };
 		9AC1FAD72B147C6800659F8E /* LandmarkSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkSettings.swift; sourceTree = "<group>"; };
+		9AC1FAD92B1483A000659F8E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +196,7 @@
 		9A6DD88C2B0C65E000ECA39D = {
 			isa = PBXGroup;
 			children = (
+				9AC1FAD92B1483A000659F8E /* README.md */,
 				9A6DD8972B0C65E000ECA39D /* Landmarks */,
 				9AC1FA732B135BFA00659F8E /* WatchLandmarks Watch App */,
 				9AC1FA9C2B1461E000659F8E /* MacLandmarks */,
