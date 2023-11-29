@@ -1,6 +1,8 @@
 ## About Landmarks
 
 [![Swift Format Lint](https://github.com/cable8mm/Landmarks/actions/workflows/swift-format-lint.yml/badge.svg)](https://github.com/cable8mm/Landmarks/actions/workflows/swift-format-lint.yml)
+[![Swift 5.9](https://img.shields.io/badge/Swift-5.9-F05138?logo=swift&logoColor=white)](https://swift.org)
+[![Latest release](https://img.shields.io/github/v/release/cable8mm/Landmarks?sort=semver)](https://github.com/cable8mm/Landmarks/releases/latest)
 
 Landmarks is the SwiftUI Tutorial.
 
