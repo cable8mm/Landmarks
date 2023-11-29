@@ -1,9 +1,7 @@
-/*
-See the LICENSE.txt file for this sample’s licensing information.
-
-Abstract:
-A single line in the graph.
-*/
+//See the LICENSE.txt file for this sample’s licensing information.
+//
+//Abstract:
+//A single line in the graph.
 
 import SwiftUI
 
@@ -36,5 +34,6 @@ struct GraphCapsule: View, Equatable {
         color: .blue,
         height: 150,
         range: 10..<50,
-        overallRange: 0..<100)
+        overallRange: 0..<100
+    )
 }
