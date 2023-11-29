@@ -15,6 +15,14 @@ swift-format lint -i -r ./
 
 If you want to do formatting in XCode, install XCFormat extension for XCode.
 
+## Tracking
+
+Sentry:
+
+```sh
+brew install getsentry/tools/sentry-wizard && sentry-wizard -i ios
+```
+
 ## Check list
 
 - [x] Build iOS, watchOS and MacOS

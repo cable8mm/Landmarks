@@ -83,6 +83,7 @@
 		9AC1FAD52B14770D00659F8E /* LandmarkCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1FAD42B14770D00659F8E /* LandmarkCommands.swift */; };
 		9AC1FAD62B14771400659F8E /* LandmarkCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1FAD42B14770D00659F8E /* LandmarkCommands.swift */; };
 		9AC1FAD82B147C6800659F8E /* LandmarkSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC1FAD72B147C6800659F8E /* LandmarkSettings.swift */; };
+		238D6DE3BD66405B844612EA /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCC2C4725244ACA9F37EA52 /* Sentry */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				238D6DE3BD66405B844612EA /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				238D6DE3BD66405B844612EA /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				238D6DE3BD66405B844612EA /* Sentry in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +406,7 @@
 				9A6DD8922B0C65E000ECA39D /* Frameworks */,
 				9A6DD8932B0C65E000ECA39D /* Resources */,
 				9AC1FA832B135BFD00659F8E /* Embed Watch Content */,
+				39264741AA704CF59FFC0F25 /* Upload Debug Symbols to Sentry */,
 			);
 			buildRules = (
 			);
@@ -412,6 +417,9 @@
 			productName = Landmarks;
 			productReference = 9A6DD8952B0C65E000ECA39D /* Landmarks.app */;
 			productType = "com.apple.product-type.application";
+			packageProductDependencies = (
+				9DCC2C4725244ACA9F37EA52 /* Sentry */,
+			);
 		};
 		9AC1FA712B135BFA00659F8E /* WatchLandmarks Watch App */ = {
 			isa = PBXNativeTarget;
@@ -477,6 +485,10 @@
 				Base,
 			);
 			mainGroup = 9A6DD88C2B0C65E000ECA39D;
+			packageReferences = (
+				9ABFE5CD2B175B15002BE014 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+				188C6058418444298D3BD858 /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
+			);
 			productRefGroup = 9A6DD8962B0C65E000ECA39D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -767,6 +779,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 			};
 			name = Debug;
 		};
@@ -798,6 +811,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 			};
 			name = Release;
 		};
@@ -961,6 +975,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9ABFE5CD2B175B15002BE014 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.17.0;
+			};
+		};
+		188C6058418444298D3BD858 /* XCRemoteSwiftPackageReference "sentry-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getsentry/sentry-cocoa/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39264741AA704CF59FFC0F25 /* Upload Debug Symbols to Sentry */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			name = "Upload Debug Symbols to Sentry";
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			shellScript = "# This script is responsable to upload debug symbols and source context for Sentry.\nif which sentry-cli >/dev/null; then\nexport SENTRY_ORG=esc-company\nexport SENTRY_PROJECT=apple-ios\nERROR=$(sentry-cli debug-files upload --include-sources \"$DWARF_DSYM_FOLDER_PATH\" 2>&1 >/dev/null)\nif [ ! $? -eq 0 ]; then\necho \"warning: sentry-cli - $ERROR\"\nfi\nelse\necho \"warning: sentry-cli not installed, download from https://github.com/getsentry/sentry-cli/releases\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9DCC2C4725244ACA9F37EA52 /* Sentry */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 188C6058418444298D3BD858 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
+			productName = Sentry;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A6DD88D2B0C65E000ECA39D /* Project object */;
 }
