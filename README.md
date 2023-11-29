@@ -1,5 +1,7 @@
 ## About Landmarks
 
+[![Swift Format Lint](https://github.com/cable8mm/Landmarks/actions/workflows/swift-format-lint.yml/badge.svg)](https://github.com/cable8mm/Landmarks/actions/workflows/swift-format-lint.yml)
+
 Landmarks is the SwiftUI Tutorial.
 
 ## Coding style
