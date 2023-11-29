@@ -22,8 +22,8 @@ struct BadgeBackground: View {
                         y: height * (0.20 + HexagonParameters.adjustment)
                     )
                 )
-                
-                HexagonParameters.segments.forEach { segment in
+
+                for segment in HexagonParameters.segments {
                     path.addLine(
                         to: CGPoint(
                             x: width * segment.line.x + xOffset,
@@ -43,11 +43,13 @@ struct BadgeBackground: View {
                     )
                 }
             }
-            .fill(.linearGradient(
-                Gradient(colors: [Self.gradientStart, Self.gradientEnd]),
-                startPoint: UnitPoint(x: 0.5, y: 0),
-                endPoint: UnitPoint(x: 0.5, y: 0.6)
-            ))
+            .fill(
+                .linearGradient(
+                    Gradient(colors: [Self.gradientStart, Self.gradientEnd]),
+                    startPoint: UnitPoint(x: 0.5, y: 0),
+                    endPoint: UnitPoint(x: 0.5, y: 0.6)
+                )
+            )
         }
         .aspectRatio(1, contentMode: .fit)
     }

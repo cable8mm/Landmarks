@@ -16,11 +16,11 @@ struct Badge: View {
         }
         .opacity(0.5)
     }
-    
+
     var body: some View {
         ZStack {
             BadgeBackground()
-            
+
             GeometryReader { geometry in
                 badgeSymbols
                     .scaleEffect(1.0 / 4.0, anchor: .top)

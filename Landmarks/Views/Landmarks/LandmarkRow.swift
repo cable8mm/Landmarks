@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LandmarkRow: View {
     var landmark: Landmark
-    
+
     var body: some View {
         HStack {
             landmark.image
@@ -20,14 +20,14 @@ struct LandmarkRow: View {
                 Text(landmark.name)
                     .bold()
                 #if !os(watchOS)
-                Text(landmark.park)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                    Text(landmark.park)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 #endif
             }
-            
+
             Spacer()
-            
+
             if landmark.isFavorite {
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)

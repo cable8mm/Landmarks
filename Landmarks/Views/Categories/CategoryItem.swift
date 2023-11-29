@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryItem: View {
     let landmark: Landmark
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             landmark.image
